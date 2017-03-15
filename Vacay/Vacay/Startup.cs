@@ -12,6 +12,7 @@ namespace Vacay
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            createRolesandUsers();
         }
 
         private void createRolesandUsers()
@@ -24,32 +25,26 @@ namespace Vacay
 
             // In Startup iam creating first Admin Role and creating a default Admin User    
             if (!roleManager.RoleExists("Admin"))
-            {
-
-                // first we create Admin rool   
+            {   
                 var role = new IdentityRole();
                 role.Name = "Admin";
-                roleManager.Create(role);
-
-                //Here we create a Admin super user who will maintain the website                  
+                roleManager.Create(role);                 
 
                 var user = new ApplicationUser();
-                user.UserName = "braeden";
+                user.UserName = "braedenchriske@gmail.com";
                 user.Email = "braedenchriske@gmail.com";
 
                 string userPWD = "Braedenc!1";
 
                 var chkUser = UserManager.Create(user, userPWD);
-
-                //Add default User to Role Admin   
+   
                 if (chkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
 
                 }
             }
-
-            // creating Creating Manager role    
+    
             if (!roleManager.RoleExists("User"))
             {
                 var role = new IdentityRole();
