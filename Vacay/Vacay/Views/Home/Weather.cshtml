@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Weather";
+}
+
+<h2>Weather</h2>
+
+<div>
+    <div class="row">
+        <button class="btn btn-default" id="weatherButton" onclick="weatherAPI()">What's the weather like today?</button>
+        <br>
+        <br>
+        <div id="weather"></div>
+        <div id="temperature"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+                                            function weatherAPI() {
+                                                var showWeather = $("#weather");
+                                                var showTemp = $("#temperature");
+                                                var zipCode = 94114;
+                                                var apiKey = '64b0083fb0c4d9a010c1608d34bb37f5';
+                                                var location = "http://api.openweathermap.org/data/2.5/forecast/daily?zip=" + zipCode + "&APPID=" + apiKey + "&units=imperial";
+
+                                                $.ajax({
+                                                    url: location,
+                                                    method: "GET",
+                                                    dataType: "jsonp",
+                                                    success: function (data) {
+                                                        var high = data.list[0].temp.max;
+                                                        var low = data.list[0].temp.min;
+                                                        showWeather.empty();
+                                                        showTemp.empty();
+
+                                                        showWeather.append(data.list[0].weather[0].main + " in " + data.city.name);
+                                                        showTemp.append("High:" + high + " " + "Low:" + low);
+                                                    }
+                                                });
+                                            }
+    </script>
+
+
+
+</div>
+

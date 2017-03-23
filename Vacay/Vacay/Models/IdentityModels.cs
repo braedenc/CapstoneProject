@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace Vacay.Models
 {
@@ -29,5 +30,10 @@ namespace Vacay.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<JournalPost> JournalPost { get; set; }
+        public DbSet<UserUpvote> UserUpvote { get; set; }
     }
+
+    
 }
