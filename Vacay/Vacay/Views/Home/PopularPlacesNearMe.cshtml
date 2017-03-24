@@ -21,14 +21,20 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <h4>@post.Username</h4>
-                    <h6>@post.Date</h6>
-                    <h3>@post.Location | <small>@post.City</small></h3>
-                    <p>@post.Post</p>
-                    
+                    <h4>@post.Post.Username</h4>
+                    <h6>@post.Post.Date</h6>
+                    <h3>@post.Post.Location | <small>@post.Post.City</small></h3>
+                    <p>@post.Post.Post</p>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    @if (post.ListOfUpvotes != null)
+                    {
+                        <a class="btn btn-primary" href="#">@post.ListOfUpvotes.Count();  &nbsp; <span class="glyphicon glyphicon-thumbs-up"></span></a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" href="#">@Model.Zero   &nbsp;<span class="glyphicon glyphicon-thumbs-up"></span></a>
+                    } 
                 </div>
             </div>
             <br />

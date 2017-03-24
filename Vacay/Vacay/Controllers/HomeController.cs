@@ -93,11 +93,30 @@ namespace Vacay.Controllers
 
         public ActionResult PopularPlacesNearMe()
         {
-            var postsList = _context.JournalPost.ToList();
-            
+            var postsList = new List<PostAndLikes>();
+            var allPosts = _context.JournalPost.ToList();
+            var allUpvotes = _context.UserUpvote.ToList();
+
+            foreach(var post in allPosts)
+            {
+                var journalPost = new PostAndLikes();
+                journalPost.Post = post;
+                foreach(var upvote in allUpvotes)
+                {
+                    if(upvote.JournalPostId == post.ID)
+                    {
+                        journalPost.ListOfUpvotes.Add(upvote);
+                    }
+                }
+
+                postsList.Add(journalPost);
+            }
+
+            var sortedList = postsList.OrderByDescending(m => m.ListOfUpvotes);
             var viewModel = new PopularPlacesViewModel
             {
-                Posts = postsList
+                Posts = sortedList,
+                Zero = 0
             };
             return View(viewModel);
             
