@@ -214,13 +214,14 @@
       <DependentUpon>201703202231337_Edited JournalPosts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\JournalPost.cs" />
-    <Compile Include="Models\PopularPlacesViewModel.cs" />
-    <Compile Include="Models\TravelJournalViewModels.cs" />
+    <Compile Include="Models\ViewModels\PopularPlacesViewModels.cs" />
+    <Compile Include="Models\ViewModels\TravelJournalViewModels.cs" />
     <Compile Include="Models\UserUpvote.cs" />
+    <Compile Include="Models\ViewModels\WeatherViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -290,7 +291,6 @@
     <Content Include="Views\Home\Weather.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
     <Content Include="Views\Home\UserIndex.cshtml" />
-    <Content Include="Views\Home\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

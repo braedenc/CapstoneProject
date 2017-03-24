@@ -1,11 +1,46 @@
-﻿
+﻿@model Vacay.Models.ViewModels.WeatherViewModels
 @{
     ViewBag.Title = "Weather";
 }
 
 <h2>Weather</h2>
 
-<div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            @*@Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })*@
+            City:
+        </div>
+        <div class="row">
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            @*@Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })*@
+            Start Date of your vacation: (DD/MM/YYYY)
+        </div>
+        <div class="row">
+            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            @*@Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label" })*@
+            End Date: (DD/MM/YYYY)
+        </div>
+        <div class="row">
+            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <input type="submit" class="btn btn-default" value="Find Weather" />
+    </div>
+</div>
+
+@*<div>
     <div class="row">
         <button class="btn btn-default" id="weatherButton" onclick="weatherAPI()">What's the weather like today?</button>
         <br>
@@ -41,5 +76,5 @@
 
 
 
-</div>
+</div>*@
 

@@ -49,15 +49,19 @@
 @foreach (var post in Model.Posts)
 {
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <a href="#">
                 <img class="img-responsive" src="http://placehold.it/700x300" alt="">
             </a>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
             <h4>@post.Username</h4>
+            <h6>@post.Date</h6>
             <h3>@post.Location | <small>@post.City</small></h3>
             <p>@post.Post</p>
+
+        </div>
+        <div class="col-md-2">
             <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
